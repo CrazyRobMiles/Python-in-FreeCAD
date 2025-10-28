@@ -128,14 +128,17 @@ class SquareText():
             return None
         return self.font_5x3[ch_offset]
 
-    def text_width_in_dots(self,text):
+    def text_dimensions_in_dots(self,text):
 
         print("Measuring:",text)
 
-        result = 0
+        width=0
+        height=6
+
+        widths = []
 
         if text == '':
-            return 0
+            return (width,height)
 
         ch_pos = 0
 
@@ -143,19 +146,24 @@ class SquareText():
 
             ch = text[ch_pos]
 
-            print(ch)
+            if ch=='\n':
+                print("newline")
+                height=height+6
+                widths.append(width)
+                width=0
+            else:
 
-            char_design = self.get_char_design(ch)
+                print(ch)
 
-            if char_design == None:
-                return None
+                char_design = self.get_char_design(ch)
 
-            result = result + len(char_design) + 1
+                if char_design != None:
+                    width = width + len(char_design) + 1
     
             ch_pos = ch_pos + 1
 
-        return result
-    
+        return (max(widths), height)
+		
     def draw_text(self,text="Hello World", x=0,y=0,z=0,width=10,depth=10,height=10,margin=0):
 
         print("Building:",text)
@@ -211,6 +219,10 @@ class SquareText():
 
         print("Building:",text)
 
+        dot_width,dot_height=self.text_dimensions_in_dots(text)
+
+        y=y+((dot_height-6)*depth)
+
         if text == '':
             return None
 
@@ -224,6 +236,25 @@ class SquareText():
         while ch_pos < len(text):
 
             ch = text[ch_pos]
+
+            if ch == "\n":
+                print("printing newline")
+                while x < dot_width*width:
+                    for ystep in range(1,5):
+                        block_panel_no = random.randint(0,no_of_panels-1)
+                        pos = App.Vector(x+margin,y+(ystep*depth)+margin,z)
+                        dot = Part.makeBox(width-(2*margin),depth-(2*margin),height,pos)
+                        for p in range(no_of_panels):
+                          if p!=block_panel_no:
+                            if results[p]==None:
+                                results[p]=dot
+                            else:       
+                                results[p]=results[p].fuse(dot)
+                    x=x+width
+                x=0
+                y=y-(6*depth)
+                ch_pos = ch_pos+1
+                continue
 
             print(ch)
 
@@ -280,6 +311,18 @@ class SquareText():
                         results[p]=results[p].fuse(dot)
             x = x + width
             ch_pos = ch_pos + 1
+        while x < dot_width*width:
+            for ystep in range(1,5):
+                block_panel_no = random.randint(0,no_of_panels-1)
+                pos = App.Vector(x+margin,y+(ystep*depth)+margin,z)
+                dot = Part.makeBox(width-(2*margin),depth-(2*margin),height,pos)
+                for p in range(no_of_panels):
+                  if p!=block_panel_no:
+                    if results[p]==None:
+                        results[p]=dot
+                    else:       
+                        results[p]=results[p].fuse(dot)
+            x=x+width
         return results
 
 doc = App.ActiveDocument or App.newDocument("Secret Encoder")
@@ -288,10 +331,13 @@ for obj in doc.Objects:
     doc.removeObject(obj.Name)
 
 text=SquareText()
-text_width_in_dots = text.text_width_in_dots(secret_text)
 
-width = text_width_in_dots*hole_x_spacing
-depth = 6*hole_y_spacing
+text_width_in_dots,text_height_in_dots=text.text_dimensions_in_dots(secret_text)
+
+print("Dot width:",text_width_in_dots,"Dot height:",text_height_in_dots)
+
+width=text_width_in_dots*hole_x_spacing
+depth=text_height_in_dots*hole_y_spacing
 
 hole_margin = 0.5
 hole_width = hole_x_spacing-(2*hole_margin)
@@ -299,7 +345,7 @@ hole_depth = hole_y_spacing-(2*hole_margin)
 hole_chance = 0.4
 no_of_panels = 3
 
-secret_messages=text.secret_message(text="Secret",x=0,y=0,z=0,width=hole_x_spacing,depth=hole_y_spacing,height=height,margin=hole_margin,no_of_panels=no_of_panels)
+secret_messages=text.secret_message(text=secret_text,x=0,y=0,z=0,width=hole_x_spacing,depth=hole_y_spacing,height=height,margin=hole_margin,no_of_panels=no_of_panels)
 
 colours = [(0.0,.5,0.0),(.5,0.0,.5),(.5,0.0,0.0),(0.0,0.0,.5)]
 

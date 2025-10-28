@@ -1,7 +1,7 @@
 # Python in FreeCAD
 Sample Python programs which create interesting objects in FreeCAD. You can open these files as Python programs using **File>Open** in FreeCAD version 1.0.  
 
-All the programs are in the code folder.
+All the programs are in the code folder. If you want general tips on Running Python in FreeCAD and how to get started, go [here](https://github.com/CrazyRobMiles/freecad-tips)
 
 ## Simple Panel
 When you run this program it creates a simple panel.
@@ -25,7 +25,11 @@ hole_y_spacing = 3.0
 height = 2.0
 
 ```
-You can configure the program by changing these values at the top of the program. 
+You can configure the program by changing these values at the top of the program. If you want your secret code to contain more than one line of text you can use "\n" characters to split the lines:
+
+```
+secret_text="Hello\nWorld"
+```
 
 Have Fun!
 
