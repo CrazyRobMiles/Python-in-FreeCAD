@@ -1,17 +1,18 @@
 # Enter the text that you want to encode
-secret_text = "Secret"
+secret_text = "Secret\nMessages"
 
 # Select how many panels you want to produce
-no_of_panels = 3
+no_of_panels = 2
 
 # Set the hole spacing on the decoder panel in mm
-
 hole_x_spacing = 3.0
 hole_y_spacing = 3.0
 
+# Set the margin around each hole
+hole_margin = 0.5
+
 # Set the thickness of each panel in mm
 height = 2.0
-
 
 import FreeCAD as App
 import FreeCADGui as Gui
@@ -142,7 +143,10 @@ class SquareText():
 
         ch_pos = 0
 
-        while ch_pos < len(text):
+        while(True):
+            if ch_pos == len(text):
+	            widths.append(width)
+	            break
 
             ch = text[ch_pos]
 
@@ -238,7 +242,6 @@ class SquareText():
             ch = text[ch_pos]
 
             if ch == "\n":
-                print("printing newline")
                 while x < dot_width*width:
                     for ystep in range(1,5):
                         block_panel_no = random.randint(0,no_of_panels-1)
@@ -339,11 +342,8 @@ print("Dot width:",text_width_in_dots,"Dot height:",text_height_in_dots)
 width=text_width_in_dots*hole_x_spacing
 depth=text_height_in_dots*hole_y_spacing
 
-hole_margin = 0.5
 hole_width = hole_x_spacing-(2*hole_margin)
 hole_depth = hole_y_spacing-(2*hole_margin)
-hole_chance = 0.4
-no_of_panels = 3
 
 secret_messages=text.secret_message(text=secret_text,x=0,y=0,z=0,width=hole_x_spacing,depth=hole_y_spacing,height=height,margin=hole_margin,no_of_panels=no_of_panels)
 
