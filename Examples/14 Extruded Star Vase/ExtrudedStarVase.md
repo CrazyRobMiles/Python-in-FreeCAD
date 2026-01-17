@@ -2,7 +2,7 @@
 
 ![An extruded star vase in FreeCAD](/Examples/14%20Extruded%20Star%20Vase/ExtrudedStarVase.png)
 
-This uses the **makeThickness** method on a solid shape (in this case an extruded star) to create a vase of that shape. You can change the star parameters to change the shape of the vase. 
+Creates and outer and an inner extruded star and then makes a vase by cutting one from the other. You can change the star parameters to change the shape of the vase. 
 
 ```Python
 import FreeCAD as App
