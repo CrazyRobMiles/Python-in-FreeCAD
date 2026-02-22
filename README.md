@@ -21,7 +21,14 @@ Sample Python programs which create interesting objects in FreeCAD.
 * [Extruded Panel](/Examples/12%20Extruded%20Panel/ExtrudedPanel.md) A program that makes a panel (just like the very first example) but does it by extruding a rectangle. 
 * [Extruded Star](/Examples/13%20Extruded%20Star/ExtrudedStar.md) A program that makes a star with any number of points and then extrudes it.
 * [Extruded Vase](/Examples/14%20Extruded%20Star%20Vase/ExtrudedStarVase.md) A vase made from an extruded star which has been hollowed out. 
+* [Multi-Star Vase](/Examples/15%20Multi%20star%20vase/Multistarvase.md) A more complex vase made from several vases which have been squished together.
 
+## Paths and Fonts
+* [Rounded Rectangle Path](/Examples/16%20Rounded%20Rectangle%20Path/RoundedRectanglePath.md) A program that creates an outline for a luggage tag with a rounded end using lines and a curve.
+* [Tag with Hole](/Examples/17%20Tag%20with%20hole/TagWithHole.md) A program that shows how a shape defined by one path can be subtracted from another. 
+* [Tag with relief text](/Examples/18%20Tag%20with%20relief%20text/TagWithReliefText.md) A program that draws relief text on a luggage label. Can be used on a printer with a single coloured filament. 
+* [Tag with embedded text](/Examples/19%20Tag%20with%20embedded%20text/TagWithEmbeddedText.md) A program that draws text embedded in the surface of the tag. Produces two printable elements which can be combined to make the tag. You will need a printer that supports multiple filaments. 
+* [Tag with internal text](/Examples/20%20Tag%20with%20internal%20text/TagWithInternalText.md) A tag which contains the text embedded just underneath the surface. Works well with white and transparent filaments for the outer case. 
 
 
 For each project you get a description, a picture that shows you what it looks like and the Python code. You can open the source files as Python programs using **File>Open** in FreeCAD version 1.0. 
