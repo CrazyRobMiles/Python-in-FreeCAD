@@ -29,7 +29,7 @@ Sample Python programs which create interesting objects in FreeCAD.
 * [Tag with relief text](/Examples/18%20Tag%20with%20relief%20text/TagWithReliefText.md) A program that draws relief text on a luggage label. Can be used on a printer with a single coloured filament. 
 * [Tag with embedded text](/Examples/19%20Tag%20with%20embedded%20text/TagWithEmbeddedText.md) A program that draws text embedded in the surface of the tag. Produces two printable elements which can be combined to make the tag. You will need a printer that supports multiple filaments. 
 * [Tag with internal text](/Examples/20%20Tag%20with%20internal%20text/TagWithInternalText.md) A tag which contains the text embedded just underneath the surface. Works well with white and transparent filaments for the outer case. 
-
+* [Party Tags](/Examples/21%20Party%20Tags/PartyTags.md) Having a party and want to print out a custom name tag for everyone attending? This program will do exactly that.
 
 For each project you get a description, a picture that shows you what it looks like and the Python code. You can open the source files as Python programs using **File>Open** in FreeCAD version 1.0. 
 If you want general tips on Running Python in FreeCAD and how to get started, go [here](https://github.com/CrazyRobMiles/freecad-tips)

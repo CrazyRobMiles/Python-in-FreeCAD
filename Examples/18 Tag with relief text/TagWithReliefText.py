@@ -37,13 +37,13 @@ text_margin=1.0
 text_height=1.0
 text_size = depth-(2*text_margin)
 
-text_face = Draft.makeShapeString(String=tag_text, FontFile=font, Size=text_size, Tracking=0)
-bb=text_face.Shape.BoundBox
+shape_string = Draft.makeShapeString(String=tag_text, FontFile=font, Size=text_size, Tracking=0)
+bb=shape_string.Shape.BoundBox
 width=bb.XLength +(depth/2)
 
-text = text_face.Shape.extrude(App.Vector(0,0,text_height))
+text = shape_string.Shape.extrude(App.Vector(0,0,text_height))
 text.translate(App.Vector(0,text_margin,height))
-App.ActiveDocument.removeObject(text_face.Name)
+App.ActiveDocument.removeObject(shape_string.Name)
 
 curve_radius = depth/2.0
 curve_middle = App.Vector(width+curve_radius,curve_radius,0)

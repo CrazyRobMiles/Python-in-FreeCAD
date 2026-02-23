@@ -4,32 +4,27 @@
 This tag generator draws the text inside the tag as an internal layer. You can follow the same sequence as for the [tag with embedded text](/Examples/19%20Tag%20with%20embedded%20text/TagWithEmbeddedText.md) to slice and print this model. It works especially well if the tag base is printed with white or transparent filament. 
 
 ```python
-# Tag with internal text
+# Extruded Panel
 import FreeCAD as App
 import FreeCADGui as Gui
 import Part
 import Draft
 
-tag_text="DAVID"
+tag_text="ROB"
 depth = 30
 height = 3
 
-
-# ---------- Helper: pick a usable bold font ----------
-def find_font(explicit_path=None):
-    if explicit_path and os.path.exists(explicit_path):
-        return explicit_path
+def find_font():
     candidates = [
         # Windows
         r"C:\Windows\Fonts\arialbd.ttf",
         # Linux
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
         # macOS
         "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
         "/Library/Fonts/Arial Bold.ttf",
-    ]
+        # Flatpak
+        "/usr/share/fonts/liberation-fonts/LiberationSans-Bold.ttf"]
     for p in candidates:
         if os.path.exists(p):
             return p
@@ -46,16 +41,15 @@ for obj in doc.Objects:
 font = find_font()
 text_margin=1.0
 text_height=1.0
-text_inset=0.4
 text_size = depth-(2*text_margin)
 
-text_face = Draft.makeShapeString(String=tag_text, FontFile=font, Size=text_size, Tracking=0)
-bb=text_face.Shape.BoundBox
+shape_string = Draft.makeShapeString(String=tag_text, FontFile=font, Size=text_size, Tracking=0)
+bb=shape_string.Shape.BoundBox
 width=bb.XLength +(depth/2)
 
-text = text_face.Shape.extrude(App.Vector(0,0,text_height))
-text.translate(App.Vector(0,text_margin,height-text_height-text_inset))
-App.ActiveDocument.removeObject(text_face.Name)
+text = shape_string.Shape.extrude(App.Vector(0,0,text_height))
+text.translate(App.Vector(0,text_margin,height))
+App.ActiveDocument.removeObject(shape_string.Name)
 
 curve_radius = depth/2.0
 curve_middle = App.Vector(width+curve_radius,curve_radius,0)
@@ -85,15 +79,10 @@ tag_face = Part.Face([tag_wire,hole_wire])
 # Extrude the face to make a solid panel
 tag = tag_face.extrude(App.Vector(0, 0, height))
 
-tag=tag.cut(text)
-
+tag=tag.fuse(text)
 # Show the result
-panel_obj = doc.addObject("Part::Feature", tag_text+" base")
+panel_obj = doc.addObject("Part::Feature", "Relief Tag")
 panel_obj.Shape = tag
-
-panel_obj = doc.addObject("Part::Feature", tag_text+" text")
-panel_obj.Shape = text
-
 
 Gui.ActiveDocument.ActiveView.fitAll()
 
