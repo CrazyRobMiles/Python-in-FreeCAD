@@ -23,6 +23,8 @@ def find_font(explicit_path=None):
         # macOS
         "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
         "/Library/Fonts/Arial Bold.ttf",
+        # Flatpak
+        "/usr/share/fonts/liberation-fonts/LiberationSans-Bold.ttf"
     ]
     for p in candidates:
         if os.path.exists(p):
