@@ -31,16 +31,16 @@ This article is all about paths and extrusion. Making complex shapes using simpl
 * [Extruded Vase](/Examples/14%20Extruded%20Star%20Vase/ExtrudedStarVase.md) A vase made from an extruded star which has been hollowed out. (page 93)
 * [Multi-Star Vase](/Examples/15%20Multi%20star%20vase/Multistarvase.md) A more complex vase made from several vases which have been squished together.
 
-## Paths and Fonts 
+## Paths and Fonts - [Raspberry Pi Magazine Issue 164](https://magazine.raspberrypi.com/issues/164)
 
-A glimpse into the future. The descriptions will be added when the magazine is released.
+This article is all about how complex objects are represented by paths, how paths are used to express character shapes and how we can use all this to make luggage tags.
 
-* [Rounded Rectangle Path](/Examples/16%20Rounded%20Rectangle%20Path/RoundedRectanglePath.md) A program that creates an outline for a luggage tag with a rounded end using lines and a curve.
-* [Tag with Hole](/Examples/17%20Tag%20with%20hole/TagWithHole.md) A program that shows how a shape defined by one path can be subtracted from another. 
-* [Tag with relief text](/Examples/18%20Tag%20with%20relief%20text/TagWithReliefText.md) A program that draws relief text on a luggage label. Can be used on a printer with a single coloured filament. 
-* [Tag with embedded text](/Examples/19%20Tag%20with%20embedded%20text/TagWithEmbeddedText.md) A program that draws text embedded in the surface of the tag. Produces two printable elements which can be combined to make the tag. You will need a printer that supports multiple filaments. 
+* [Rounded Rectangle Path](/Examples/16%20Rounded%20Rectangle%20Path/RoundedRectanglePath.md) A program that creates an outline for a luggage tag with a rounded end using lines and a curve.(page 61)
+* [Tag with Hole](/Examples/17%20Tag%20with%20hole/TagWithHole.md) A program that shows how a shape defined by one path can be subtracted from another. (page 63)
+* [Tag with relief text](/Examples/18%20Tag%20with%20relief%20text/TagWithReliefText.md) A program that draws relief text on a luggage label. Can be used on a printer with a single coloured filament. (page 64)
+* [Tag with embedded text](/Examples/19%20Tag%20with%20embedded%20text/TagWithEmbeddedText.md) A program that draws text embedded in the surface of the tag. Produces two printable elements which can be combined to make the tag. You will need a printer that supports multiple filaments. (page 65)
 * [Tag with internal text](/Examples/20%20Tag%20with%20internal%20text/TagWithInternalText.md) A tag which contains the text embedded just underneath the surface. Works well with white and transparent filaments for the outer case. 
-* [Party Tags](/Examples/21%20Party%20Tags/PartyTags.md) Having a party and want to print out a custom name tag for everyone attending? This program will do exactly that.
+* [Party Tags](/Examples/21%20Party%20Tags/PartyTags.md) Having a party and want to print out a custom name tag for everyone attending? This program will do exactly that. (page 65)
 
 For each project you get a description, a picture that shows you what it looks like and the Python code. You can open the source files as Python programs using **File>Open** in FreeCAD version 1.0. 
 If you want general tips on Running Python in FreeCAD and how to get started, go [here](https://github.com/CrazyRobMiles/freecad-tips)
