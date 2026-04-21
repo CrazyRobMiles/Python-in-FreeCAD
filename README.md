@@ -42,8 +42,21 @@ This article is all about how complex objects are represented by paths, how path
 * [Tag with internal text](/Examples/20%20Tag%20with%20internal%20text/TagWithInternalText.md) A tag which contains the text embedded just underneath the surface. Works well with white and transparent filaments for the outer case. 
 * [Party Tags](/Examples/21%20Party%20Tags/PartyTags.md) Having a party and want to print out a custom name tag for everyone attending? This program will do exactly that. (page 65)
 
+## Objects from Images
+
+In this article we add a bit of image processing to our object generation code and use this to create mosaics and puzzles. 
+
+* [Mosaic from Image](/Examples/22%20Mosaic%20from%20Image/MosaicFromImage.md) Take an image and create a mosaic from it. The mosaic is created as five stl files (base stl and four colours) which are printed as one and combine to form a mosaic. The input image is processed to reduce the resolution and colour depth and then broken into tiles. 
+
+* [Dot Matrix from Image](/Examples/23%20Dot%20Matrix%20from%20Image/DotMatrixFromImage.md) This program is used in the same way as the mosaic, but the image is made from dots inside the tiles, giving a dot-matrix effect. 
+
+* [Line scan from Image](/Examples/24%20LineScan%20from%20image/LineScanFromImage.md) This program is used in the same way as the mosaic, but the image is made lines rather than with individual dots. 
+
+* [Image Puzzle](/Examples/25%20Image%20Puzzle/ImagePuzzle.md) This program is used in the same way as the mosaic, but the image is cut into tiles to make a mosaic puzzle. The program also produces an stl design for a tray to hold the puzzle. 
+
 For each project you get a description, a picture that shows you what it looks like and the Python code. You can open the source files as Python programs using **File>Open** in FreeCAD version 1.0. 
 If you want general tips on Running Python in FreeCAD and how to get started, go [here](https://github.com/CrazyRobMiles/freecad-tips)
+
 
 Have Fun!
 
