@@ -54,6 +54,18 @@ In this article we add a bit of image processing to our object generation code a
 
 * [Image Puzzle](/Examples/25%20Image%20Puzzle/ImagePuzzle.md) This program is used in the same way as the mosaic, but the image is cut into tiles to make a mosaic puzzle. The program also produces an stl design for a tray to hold the puzzle. 
 
+## Curves, Pipes and Jigsaw Puzzles
+
+In this article we explore how to create complex objects by creating a path between control points and then sweeping a cross-section profile along it using `makePipeShell`. We start with simple pipe shapes and then use the same technique to cut jigsaw tabs into a multi-colour mosaic puzzle.
+
+* [Pipe Path](/Examples/26%20Pipe%20path/PipePath.md) Sweeps a circular cross-section around a rounded rectangle to create a hollow pipe. Introduces `makePipeShell` and the relationship between a path wire, a profile wire, and the resulting solid.
+
+* [Spaghetti Maker](/Examples/27%20Spaghetti%20maker/SpaghettiMaker.md) Generates a set of random 3D waypoints, fits a BSpline curve through them, and sweeps a circular cross-section along the result. Change `RANDOM_SEED` for a different shape.
+
+* [Jigsaw Puzzle](/Examples/28%20Jigsaw%20Puzzle/JigsawPuzzle.md) Converts an image into a colour mosaic and cuts it into interlocking jigsaw pieces. Each filament colour is exported as a separate STL file containing all the pieces for that colour.
+
+* [Random Jigsaw](/Examples/29%20Random%20jigsaw/RandomJigsaw.md) A variation of the jigsaw puzzle where each tab is placed at a random position along its piece edge, making neighbouring pieces easier to tell apart.
+
 For each project you get a description, a picture that shows you what it looks like and the Python code. You can open the source files as Python programs using **File>Open** in FreeCAD version 1.0. 
 If you want general tips on Running Python in FreeCAD and how to get started, go [here](https://github.com/CrazyRobMiles/freecad-tips)
 
