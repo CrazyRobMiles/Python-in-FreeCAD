@@ -56,7 +56,7 @@ In this article we add a bit of image processing to our object generation code a
 
 ## Curves, Pipes and Jigsaw Puzzles
 
-In this article we explore how to create complex objects by creating a path between control points and then sweeping a cross-section profile along it using `makePipeShell`. We start with simple pipe shapes and then use the same technique to cut jigsaw tabs into a multi-colour mosaic puzzle.
+In this article we explore how to create complex objects by creating a path between control points and then sweeping a cross-section profile along it using `makePipeShell`. We start with simple pipe shapes and then use the same technique to cut jigsaw tabs into a multi-colour mosaic puzzle. We also have a go with the pipe operation on a rounded rectangle and a spaghetti. 
 
 * [Pipe Path](/Examples/26%20Pipe%20path/PipePath.md) Sweeps a circular cross-section around a rounded rectangle to create a hollow pipe. Introduces `makePipeShell` and the relationship between a path wire, a profile wire, and the resulting solid.
 
